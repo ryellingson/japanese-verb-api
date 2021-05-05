@@ -2,7 +2,7 @@ module.exports = {
   client: 'pg',
   version: '7.2',
   connection: {
-    host : '127.0.0.1',
+    host : process.env.DATABASE_URL,
     user : 'postgres',
     password : 'postgres',
     database : 'japaneseapi'

@@ -2,7 +2,7 @@ module.exports = {
   client: 'pg',
   version: '7.2',
   connection: {
-    host : process.env.DATABASE_URL,
+    host : "127.0.0.1",
     user : 'postgres',
     password : 'postgres',
     database : 'japaneseapi'
@@ -11,7 +11,6 @@ module.exports = {
     tableName: 'knex_migrations'
   },
   production: {
-    client: "pg",
     connection: {
       connectionString: process.env.DATABASE_URL,
       ssl: { rejectUnauthorized: false },

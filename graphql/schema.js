@@ -89,6 +89,7 @@ const typeDefs = gql`
 
   type Query {
     search (query: String!): VerbResult
+    randomList (size: Int): [ Verb ]
     conjugate (verb: String!, type: String): Verb
   }
 

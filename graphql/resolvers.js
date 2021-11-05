@@ -1,5 +1,6 @@
 const VerbModel = require('../models/VerbModel.js');
 const { createVerbObject } = require('../classes/AllVerbs');
+const sampleSize = require("lodash/sampleSize");
 
 const resolvers = {
   Query: {
@@ -21,6 +22,11 @@ const resolvers = {
       if (type) return createVerbObject({dictionary_form: verb, type}).all;
       const response = await VerbModel.find({ dictionary_form: verb });
       return response;
+    },
+    randomList: async (_, { size = 20 }) => {
+      const allVerbs = await VerbModel.all();
+      console.log({allVerbs});
+      return sampleSize(allVerbs, size);
     }
   },
   Mutation: {

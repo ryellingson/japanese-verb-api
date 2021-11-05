@@ -41,6 +41,12 @@ const VerbModel = {
       .then((response) => { return response.rows[0] })
       .catch((error) => console.log(error.detail));
   },
+  all: async () => {
+    // console.log("knex", knex('verbs'));
+    return knex('verbs')
+      .then((response) => { console.log(response) })
+      .catch((error) => console.log(error.detail));
+  }
 }
 
 module.exports = VerbModel;

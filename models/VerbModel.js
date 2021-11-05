@@ -44,7 +44,7 @@ const VerbModel = {
   all: async () => {
     // console.log("knex", knex('verbs'));
     return knex('verbs')
-      .then((response) => { console.log(response) })
+      .then((response) => { return response })
       .catch((error) => console.log(error.detail));
   }
 }

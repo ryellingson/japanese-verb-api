@@ -1,4 +1,10 @@
+const Kuroshiro = require('kuroshiro');
+const KuromojiAnalyzer = require('kuroshiro-analyzer-kuromoji');
+const kuroshiro = new Kuroshiro();
+
 const all_forms = require("../helpers/all_forms.js")
+
+console.log("starting");
 
 class Verb {
   constructor({ dictionary_form, type }) {
@@ -80,12 +86,23 @@ class Verb {
   }
 
   get all() {
+    console.log("starting get all");
     let returnObj = {
       dictionary_form: this.dictionary_form,
       type: this.type,
     };
     all_forms.forEach((form) => {
-      returnObj[form] = this[form]
+      // Converting to hiragana before storing
+      if (!this.kuroshiroInitialized) {
+        console.log("init kuro");
+        kuroshiro.init(new KuromojiAnalyzer());
+        console.log("init done");
+        this.kuroshiroInitialized = true;
+      }
+      return kuroshiro.convert(this[form], { to: "hiragana" }).then(result => {
+        returnObj[form] = result;
+        console.log("result", result);
+      });
     })
     return returnObj;
   }

@@ -20,6 +20,8 @@
     "global": "^4.4.0",
     "graphql": "^14.4.2",
     "knex": "^0.21.1",
+    "kuroshiro": "~1.1.2",
+    "kuroshiro-analyzer-kuromoji": "^1.1.0",
     "lodash": "^4.17.21",
     "mocha": "^6.2.0",
     "objection": "^2.1.3",

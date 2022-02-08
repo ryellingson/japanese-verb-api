@@ -25,7 +25,7 @@ const resolvers = {
     },
     randomList: async (_, { size = 20 }) => {
       const allVerbs = await VerbModel.all();
-      console.log({allVerbs});
+      // console.log({allVerbs});
       return sampleSize(allVerbs, size);
     }
   },
